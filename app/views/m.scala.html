@@ -1,0 +1,8 @@
+@(animal: models.Animal)
+
+@animal match {
+    case Dog => {🐶}
+    case Cat => {🦁}
+    case Rabbit =>                  {🐰}
+    case _ =>   {🐙}
+}

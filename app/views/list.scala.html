@@ -1,0 +1,40 @@
+@(list: List[models.Sweet])
+@praise(name: String, praise: String) = @{
+    <p>The thing I really like about @name is @praise</p>
+
+}
+
+
+<ul style="font-family:monospace">
+@list.map{sweet =>
+  <li>
+    @sweet.name <em>(@sweet.description)</em>
+  </li>
+}
+</ul>
+
+
+@list.map(_.name)
+@list.map { sweet =>
+  @sweet.name
+}
+
+@list.map { sweet =>
+  @fragment(sweet.name) {
+    <p>The thing I really like about @sweet.name is @sweet.description</p>
+  }
+}
+
+@list.map { sweet =>
+  @fragment(sweet.name) {
+    @praise(sweet.name,sweet.description)
+  }
+}
+here:
+@list.map(sweet => <p>{sweet.name}</p>)
+
+
+@defining(list.map(_.name).mkString(" ")) { name =>
+  <p>here we sell all of the sweets, including @name</p>
+  <p>did I tell you our sweets included @name</p>
+}

@@ -1,0 +1,16 @@
+@(opt: Option[String])
+
+@opt.get
+
+@opt.getOrElse("Nope")
+
+@opt.map { certainly =>
+    @certainly
+}
+@opt.fold {
+    <strong>Apparently Not</strong>
+} { certainly =>
+    <p>
+        @certainly
+    </p>
+}

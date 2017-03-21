@@ -1,2 +1,5 @@
-GET    /    controllers.Application.helloWorld
-GET    /assets/*file    controllers.Assets.at(path="/public", file)
+GET        /                    controllers.Application.helloWorld
+GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET        /list                controllers.Application.list
+GET        /maybe               controllers.Application.maybe
+GET        /ma                  controllers.Application.m
